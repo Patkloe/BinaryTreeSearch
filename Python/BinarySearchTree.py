@@ -22,16 +22,16 @@ class Node:
                     self.right.insert(data)
         else:
             self.data = data
-# findval method to compare the value with nodes
-    def findval(self, lkpval):
-        if lkpval < self.data:
+# checkval method to compare the value with nodes
+    def checkval(self, val):
+        if val < self.data:
             if self.left is None:
-                return str(lkpval)+" Not Found"
-            return self.left.findval(lkpval)
-        elif lkpval > self.data:
+                return str(val)+" Not Found"
+            return self.left.checkval(val)
+        elif val > self.data:
             if self.right is None:
-                return str(lkpval)+" Not Found"
-            return self.right.findval(lkpval)
+                return str(val)+" Not Found"
+            return self.right.checkval(val)
         else:
             print(str(self.data) + ' is found')
 # Print the tree
@@ -47,5 +47,5 @@ root = Node(10)
 root.insert(5)
 root.insert(12)
 root.insert(7)
-print(root.findval(7))
-print(root.findval(13))
+print(root.checkval(7))
+print(root.checkval(13))
